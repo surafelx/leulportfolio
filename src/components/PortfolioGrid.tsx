@@ -3,8 +3,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Play, Image as ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ImageIcon, Play } from 'lucide-react';
 import { Project } from '@/types/project';
+import GridTemplate from './GridTemplate';
+import NavigationArrows from './NavigationArrows';
+import ComingSoonCard from './ComingSoonCard';
 
 interface PortfolioGridProps {
   title: string;
@@ -98,91 +101,23 @@ export default function PortfolioGrid({
     );
   }
 
+  const backgroundColor = category === 'TVC' ? 'green' : category === 'Decks' ? 'gray' : 'white';
+
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
-        {/* Enhanced Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 1,
-            type: "spring",
-            stiffness: 100,
-            damping: 20
-          }}
-          className="text-center mb-20 lg:mb-24"
-        >
-          <motion.h2
-            className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-8 uppercase tracking-wider"
-            whileHover={{
-              scale: 1.05,
-              textShadow: "0px 0px 8px rgba(0,0,0,0.3)"
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.span
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
-            >
-              {title}
-            </motion.span>
-          </motion.h2>
-          {subtitle && (
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium"
-            >
-              {subtitle}
-            </motion.p>
-          )}
-        </motion.div>
+    <GridTemplate
+      title={title}
+      subtitle={subtitle}
+      backgroundColor={backgroundColor}
+    >
 
         {/* Projects Grid with Navigation - Optimized for 1920x1080 */}
         <div className="relative mb-12">
-          {/* Left Arrow - Green Theme */}
-          <motion.button
-            onClick={scrollLeft}
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
-              canScrollLeft
-                ? 'opacity-100 hover:from-green-600 hover:to-emerald-700 hover:shadow-3xl transform hover:scale-125'
-                : 'opacity-0 pointer-events-none'
-            }`}
-            whileHover={{
-              scale: canScrollLeft ? 1.25 : 1,
-              rotate: canScrollLeft ? -5 : 0
-            }}
-            whileTap={{ scale: canScrollLeft ? 0.9 : 1 }}
-          >
-            <ChevronLeft className="w-8 h-8 text-white drop-shadow-lg" />
-          </motion.button>
-
-          {/* Right Arrow - Green Theme */}
-          <motion.button
-            onClick={scrollRight}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
-              canScrollRight
-                ? 'opacity-100 hover:from-emerald-600 hover:to-teal-700 hover:shadow-3xl transform hover:scale-125'
-                : 'opacity-0 pointer-events-none'
-            }`}
-            whileHover={{
-              scale: canScrollRight ? 1.25 : 1,
-              rotate: canScrollRight ? 5 : 0
-            }}
-            whileTap={{ scale: canScrollRight ? 0.9 : 1 }}
-          >
-            <ChevronRight className="w-8 h-8 text-white drop-shadow-lg" />
-          </motion.button>
+          <NavigationArrows
+            canScrollLeft={canScrollLeft}
+            canScrollRight={canScrollRight}
+            onScrollLeft={scrollLeft}
+            onScrollRight={scrollRight}
+          />
 
           {/* Scrollable Grid Container */}
           <div
@@ -196,63 +131,13 @@ export default function PortfolioGrid({
                 // Coming Soon Display
                 <div className="flex gap-8 lg:gap-10">
                   {[1, 2, 3, 4].map((index) => (
-                    <motion.div
+                    <ComingSoonCard
                       key={`coming-soon-${index}`}
-                      initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.8,
-                        delay: index * 0.15,
-                        type: "spring",
-                        stiffness: 100
-                      }}
-                      className="flex-shrink-0 w-96 lg:w-[420px] xl:w-[480px]"
-                    >
-                      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 aspect-[16/10] mb-6 shadow-xl border-2 border-gray-300">
-                        <div className="relative w-full h-full flex items-center justify-center">
-                          <div className="text-center">
-                            <motion.div
-                              animate={{
-                                scale: [1, 1.1, 1],
-                                opacity: [0.7, 1, 0.7]
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                              }}
-                              className="w-20 h-20 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4"
-                            >
-                              <span className="text-2xl font-bold text-white">🎬</span>
-                            </motion.div>
-                            <h3 className="text-2xl font-bold text-gray-700 uppercase tracking-wide mb-2">
-                              Coming Soon
-                            </h3>
-                            <p className="text-gray-500 text-sm">
-                              Exciting new content in development
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-400 mb-2 uppercase tracking-wide">
-                          TVC Project {index}
-                        </h3>
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="px-3 py-1 bg-gray-200 text-gray-500 text-xs font-bold rounded-full uppercase tracking-wider">
-                            Coming Soon
-                          </span>
-                          <span className="text-sm text-gray-400 font-medium">
-                            2024
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                          Professional television commercial in development. Stay tuned for updates.
-                        </p>
-                      </div>
-                    </motion.div>
+                      index={index}
+                      category={category || 'TVC'}
+                      title={`${category || 'TVC'} Project ${index}`}
+                      description="Professional content in development. Stay tuned for updates."
+                    />
                   ))}
                 </div>
               ) : (
@@ -453,7 +338,6 @@ export default function PortfolioGrid({
             </Link>
           </motion.div>
         )}
-      </div>
-    </section>
+    </GridTemplate>
   );
 }
