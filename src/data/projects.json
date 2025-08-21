@@ -94,5 +94,133 @@
     "description": "Annual report presentation for Fortune 500 company. Professional design with consistent branding, clear data visualization, and engaging layouts to communicate company performance and strategy.",
     "imageUrl": "/images/corporate-deck.jpg",
     "createdAt": "2025-06-15"
+  },
+  {
+    "id": "13",
+    "title": "Holiday Campaign KV",
+    "category": "KV",
+    "description": "Festive key visual campaign for holiday season featuring warm colors and celebratory elements. Created to evoke emotions and drive seasonal engagement across multiple touchpoints.",
+    "imageUrl": "/images/kv-holiday.jpg",
+    "createdAt": "2024-12-01"
+  },
+  {
+    "id": "14",
+    "title": "Sports Brand Identity",
+    "category": "Branding",
+    "description": "Dynamic brand identity for athletic wear company. Bold typography, energetic color palette, and flexible logo system that works across digital and physical applications.",
+    "imageUrl": "/images/sports-brand.jpg",
+    "createdAt": "2024-11-15"
+  },
+  {
+    "id": "15",
+    "title": "Product Launch TVC",
+    "category": "TVC",
+    "description": "High-energy commercial for tech product launch. Fast-paced editing, dynamic camera work, and compelling narrative to showcase product features and benefits.",
+    "imageUrl": "/images/product-tvc.mp4",
+    "createdAt": "2024-10-20"
+  },
+  {
+    "id": "16",
+    "title": "Brand Animation",
+    "category": "Motion Graphics",
+    "description": "Logo animation and brand motion system. Smooth transitions and dynamic elements that bring the brand to life across digital platforms and presentations.",
+    "imageUrl": "/images/brand-animation.mp4",
+    "createdAt": "2024-09-10"
+  },
+  {
+    "id": "17",
+    "title": "Interior Visualization",
+    "category": "3D",
+    "description": "Photorealistic 3D interior rendering for luxury hotel project. Detailed textures, accurate lighting, and atmospheric effects to showcase design concepts.",
+    "imageUrl": "/images/interior-3d.png",
+    "createdAt": "2024-08-25"
+  },
+  {
+    "id": "18",
+    "title": "Investor Deck",
+    "category": "Decks",
+    "description": "Series A funding presentation for fintech startup. Clean design with compelling data visualization and strategic storytelling to attract investors.",
+    "imageUrl": "/images/investor-deck.jpg",
+    "createdAt": "2024-07-30"
+  },
+  {
+    "id": "19",
+    "title": "Fashion Week KV",
+    "category": "KV",
+    "description": "Elegant key visual for fashion week event. Sophisticated typography and minimalist design approach that reflects the premium nature of the event.",
+    "imageUrl": "/images/fashion-kv.jpg",
+    "createdAt": "2024-06-18"
+  },
+  {
+    "id": "20",
+    "title": "Healthcare Branding",
+    "category": "Branding",
+    "description": "Trustworthy brand identity for healthcare provider. Clean, professional design with calming colors and accessible typography to inspire confidence.",
+    "imageUrl": "/images/healthcare-brand.jpg",
+    "createdAt": "2024-05-12"
+  },
+  {
+    "id": "21",
+    "title": "Music Festival KV",
+    "category": "KV",
+    "description": "Vibrant key visual for summer music festival. Bold colors, dynamic typography, and energetic composition that captures the festival atmosphere.",
+    "imageUrl": "/images/music-kv.jpg",
+    "createdAt": "2024-04-08"
+  },
+  {
+    "id": "22",
+    "title": "Fintech Branding",
+    "category": "Branding",
+    "description": "Modern brand identity for financial technology startup. Clean, trustworthy design with innovative elements that reflect cutting-edge technology.",
+    "imageUrl": "/images/fintech-brand.jpg",
+    "createdAt": "2024-03-22"
+  },
+  {
+    "id": "23",
+    "title": "Gaming TVC",
+    "category": "TVC",
+    "description": "Action-packed commercial for video game launch. Cinematic visuals, dramatic music, and fast-paced editing to showcase gameplay and excitement.",
+    "imageUrl": "/images/gaming-tvc.mp4",
+    "createdAt": "2024-02-14"
+  },
+  {
+    "id": "24",
+    "title": "UI Animation",
+    "category": "Motion Graphics",
+    "description": "Smooth user interface animations for mobile app. Micro-interactions and transitions that enhance user experience and guide navigation.",
+    "imageUrl": "/images/ui-animation.mp4",
+    "createdAt": "2024-01-28"
+  },
+  {
+    "id": "25",
+    "title": "Product Rendering",
+    "category": "3D",
+    "description": "High-quality 3D product visualization for e-commerce. Photorealistic materials and lighting to showcase product details and features.",
+    "imageUrl": "/images/product-render.png",
+    "createdAt": "2023-12-15"
+  },
+  {
+    "id": "26",
+    "title": "Startup Pitch Deck",
+    "category": "Decks",
+    "description": "Compelling pitch presentation for tech startup. Strategic storytelling with clear value proposition and engaging visual design.",
+    "imageUrl": "/images/startup-deck.jpg",
+    "createdAt": "2023-11-30"
+  },
+  {
+    "id": "27",
+    "title": "Automotive KV",
+    "category": "KV",
+    "description": "Sleek key visual for luxury car campaign. Premium aesthetic with dramatic lighting and sophisticated composition.",
+    "imageUrl": "/images/auto-kv.jpg",
+    "createdAt": "2023-10-18"
+  },
+  {
+    "id": "28",
+    "title": "Food Brand Identity",
+    "category": "Branding",
+    "description": "Organic food brand identity with natural, sustainable design approach. Earthy colors and handcrafted typography.",
+    "imageUrl": "/images/food-brand.jpg",
+    "createdAt": "2023-09-25"
   }
 ]

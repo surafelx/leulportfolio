@@ -31,7 +31,23 @@ const placeholders = [
   { filename: 'car-tvc.mp4', text: 'Car Commercial' },
   { filename: 'app-launch.mp4', text: 'App Launch Animation' },
   { filename: 'arch-viz.png', text: 'Architectural Viz' },
-  { filename: 'corporate-deck.jpg', text: 'Corporate Presentation' }
+  { filename: 'corporate-deck.jpg', text: 'Corporate Presentation' },
+  { filename: 'kv-holiday.jpg', text: 'Holiday Campaign KV' },
+  { filename: 'sports-brand.jpg', text: 'Sports Brand Identity' },
+  { filename: 'product-tvc.mp4', text: 'Product Launch TVC' },
+  { filename: 'brand-animation.mp4', text: 'Brand Animation' },
+  { filename: 'interior-3d.png', text: 'Interior Visualization' },
+  { filename: 'investor-deck.jpg', text: 'Investor Deck' },
+  { filename: 'fashion-kv.jpg', text: 'Fashion Week KV' },
+  { filename: 'healthcare-brand.jpg', text: 'Healthcare Branding' },
+  { filename: 'music-kv.jpg', text: 'Music Festival KV' },
+  { filename: 'fintech-brand.jpg', text: 'Fintech Branding' },
+  { filename: 'gaming-tvc.mp4', text: 'Gaming TVC' },
+  { filename: 'ui-animation.mp4', text: 'UI Animation' },
+  { filename: 'product-render.png', text: 'Product Rendering' },
+  { filename: 'startup-deck.jpg', text: 'Startup Pitch Deck' },
+  { filename: 'auto-kv.jpg', text: 'Automotive KV' },
+  { filename: 'food-brand.jpg', text: 'Food Brand Identity' }
 ];
 
 placeholders.forEach(({ filename, text }) => {

@@ -14,12 +14,12 @@ interface PortfolioGridProps {
   showViewAll?: boolean;
 }
 
-export default function PortfolioGrid({ 
-  title, 
-  subtitle, 
-  category, 
-  limit = 6,
-  showViewAll = true 
+export default function PortfolioGrid({
+  title,
+  subtitle,
+  category,
+  limit = 8,
+  showViewAll = true
 }: PortfolioGridProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -77,8 +77,8 @@ export default function PortfolioGrid({
           )}
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {/* Projects Grid - Optimized for 1920x1080 */}
+        <div className="portfolio-grid-1920 mb-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -88,7 +88,7 @@ export default function PortfolioGrid({
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] mb-4">
+              <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-[16/10] mb-4">
                 {/* Project Image/Video */}
                 <div className="relative w-full h-full">
                   {project.imageUrl.endsWith('.mp4') || project.imageUrl.endsWith('.mov') ? (

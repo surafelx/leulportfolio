@@ -16,7 +16,7 @@ export default function Home() {
         title="Featured Key Visuals"
         subtitle="Strategic visual campaigns that capture attention and drive engagement"
         category="KV"
-        limit={3}
+        limit={8}
       />
 
       <TestimonialsSection />
@@ -26,7 +26,7 @@ export default function Home() {
         title="Brand Identity Work"
         subtitle="Complete brand systems that tell compelling stories"
         category="Branding"
-        limit={3}
+        limit={8}
       />
 
       {/* Motion Graphics */}
@@ -35,7 +35,7 @@ export default function Home() {
           title="Motion & Animation"
           subtitle="Dynamic visual storytelling through motion graphics and animation"
           category="Motion Graphics"
-          limit={3}
+          limit={8}
         />
       </div>
 
@@ -43,7 +43,7 @@ export default function Home() {
       <PortfolioGrid
         title="Recent Projects"
         subtitle="Latest creative work across all disciplines"
-        limit={6}
+        limit={12}
         showViewAll={true}
       />
     </div>
