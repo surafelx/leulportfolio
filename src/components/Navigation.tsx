@@ -52,7 +52,7 @@ export default function Navigation() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="text-xl lg:text-2xl font-bold text-gray-900"
+              className="text-xl lg:text-2xl font-heading font-bold text-gray-900"
             >
               Leoul Solomon
             </motion.div>

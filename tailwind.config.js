@@ -13,6 +13,11 @@ module.exports = {
       maxWidth: {
         '8xl': '1920px',
       },
+      fontFamily: {
+        'sans': ['var(--font-montserrat)', 'sans-serif'],
+        'heading': ['var(--font-raleway)', 'sans-serif'],
+        'body': ['var(--font-montserrat)', 'sans-serif'],
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',

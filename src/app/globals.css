@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-raleway: 'Raleway', sans-serif;
 }
 
 @layer base {
@@ -14,6 +16,20 @@
 
   body {
     @apply text-gray-900 bg-white;
+    font-family: var(--font-montserrat);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-raleway);
+    font-weight: 600;
+  }
+
+  .font-heading {
+    font-family: var(--font-raleway);
+  }
+
+  .font-body {
+    font-family: var(--font-montserrat);
   }
 }
 
