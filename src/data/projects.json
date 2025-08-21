@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "title": "Summer Campaign KV",
+    "category": "KV",
+    "description": "Key visual design for a summer ad campaign featuring vibrant colors and dynamic typography. This project involved creating compelling visual narratives that capture the essence of summer energy and translate brand values into memorable imagery.",
+    "imageUrl": "/images/kv-summer.jpg",
+    "createdAt": "2025-01-05"
+  },
+  {
+    "id": "2",
+    "title": "Brand Identity Redesign",
+    "category": "Branding",
+    "description": "Complete rebrand for a fashion startup including logo design, color palette, typography system, and brand guidelines. The project focused on creating a modern, sophisticated identity that appeals to young professionals.",
+    "imageUrl": "/images/branding-redesign.jpg",
+    "createdAt": "2025-02-01"
+  },
+  {
+    "id": "3",
+    "title": "Telecom TVC",
+    "category": "TVC",
+    "description": "30-second commercial for telecom provider showcasing their new 5G network capabilities. The commercial features dynamic motion graphics and compelling storytelling to highlight speed and connectivity.",
+    "imageUrl": "/images/tvc-telecom.mp4",
+    "createdAt": "2025-02-10"
+  },
+  {
+    "id": "4",
+    "title": "Animated Promo",
+    "category": "Motion Graphics",
+    "description": "Motion graphics explainer for fintech app launch. Created engaging animations that simplify complex financial concepts and guide users through the app's key features and benefits.",
+    "imageUrl": "/images/mograph-promo.mp4",
+    "createdAt": "2025-03-15"
+  },
+  {
+    "id": "5",
+    "title": "3D Product Render",
+    "category": "3D",
+    "description": "High-quality 3D render of a consumer product for e-commerce and marketing materials. Photorealistic rendering with attention to materials, lighting, and composition to showcase product features.",
+    "imageUrl": "/images/3d-product.png",
+    "createdAt": "2025-03-20"
+  },
+  {
+    "id": "6",
+    "title": "Pitch Deck Design",
+    "category": "Decks",
+    "description": "Investor pitch deck for startup funding featuring clean design, compelling data visualization, and strategic storytelling. Designed to communicate complex business concepts clearly and persuasively.",
+    "imageUrl": "/images/deck-design.jpg",
+    "createdAt": "2025-04-01"
+  },
+  {
+    "id": "7",
+    "title": "Tech Conference KV",
+    "category": "KV",
+    "description": "Key visual campaign for annual technology conference. Modern, futuristic design approach with bold typography and geometric elements to convey innovation and forward-thinking.",
+    "imageUrl": "/images/kv-tech.jpg",
+    "createdAt": "2025-04-15"
+  },
+  {
+    "id": "8",
+    "title": "Restaurant Branding",
+    "category": "Branding",
+    "description": "Complete brand identity for upscale restaurant including logo, menu design, signage, and packaging. Elegant design that reflects the restaurant's premium positioning and culinary excellence.",
+    "imageUrl": "/images/restaurant-brand.jpg",
+    "createdAt": "2025-05-01"
+  },
+  {
+    "id": "9",
+    "title": "Car Commercial",
+    "category": "TVC",
+    "description": "Luxury car commercial emphasizing performance and elegance. Cinematic approach with dramatic lighting and smooth camera movements to showcase the vehicle's design and capabilities.",
+    "imageUrl": "/images/car-tvc.mp4",
+    "createdAt": "2025-05-10"
+  },
+  {
+    "id": "10",
+    "title": "App Launch Animation",
+    "category": "Motion Graphics",
+    "description": "Launch animation sequence for mobile app featuring smooth transitions and micro-interactions. Designed to create excitement and demonstrate the app's user-friendly interface.",
+    "imageUrl": "/images/app-launch.mp4",
+    "createdAt": "2025-05-20"
+  },
+  {
+    "id": "11",
+    "title": "Architectural Visualization",
+    "category": "3D",
+    "description": "3D architectural visualization for residential development. Photorealistic renders showcasing interior and exterior spaces with accurate lighting and materials to help clients visualize the final result.",
+    "imageUrl": "/images/arch-viz.png",
+    "createdAt": "2025-06-01"
+  },
+  {
+    "id": "12",
+    "title": "Corporate Presentation",
+    "category": "Decks",
+    "description": "Annual report presentation for Fortune 500 company. Professional design with consistent branding, clear data visualization, and engaging layouts to communicate company performance and strategy.",
+    "imageUrl": "/images/corporate-deck.jpg",
+    "createdAt": "2025-06-15"
+  }
+]
