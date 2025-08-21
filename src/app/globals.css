@@ -22,6 +22,8 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-raleway);
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .font-heading {
@@ -35,19 +37,23 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 uppercase tracking-wide shadow-lg;
   }
 
   .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 transform hover:scale-105;
+    @apply bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 focus:ring-green-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-2xl;
   }
 
   .btn-secondary {
-    @apply bg-transparent text-blue-600 border-2 border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 transform hover:scale-105;
+    @apply bg-gradient-to-r from-white to-green-50 text-green-700 border-3 border-green-400 hover:border-green-600 hover:from-green-50 hover:to-green-100 focus:ring-green-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .btn-accent {
+    @apply bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:from-emerald-500 hover:to-teal-600 focus:ring-emerald-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-2xl;
   }
 
   .section-padding {
-    @apply py-16 lg:py-24;
+    @apply py-24 lg:py-32 xl:py-40;
   }
 
   .container-custom {
@@ -77,7 +83,11 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-vibrant {
+    @apply bg-gradient-to-r from-lime-400 via-green-500 to-emerald-600 bg-clip-text text-transparent;
   }
 
   .hero-green {
@@ -91,5 +101,24 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .bg-colorful-green {
+    background: linear-gradient(135deg, #10b981 0%, #059669 25%, #047857 50%, #065f46 75%, #064e3b 100%);
+  }
+
+  .bg-vibrant-pattern {
+    background-image:
+      radial-gradient(circle at 25% 25%, #10b981 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, #059669 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, #047857 0%, transparent 50%);
+  }
+
+  .text-shadow-green {
+    text-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.1);
   }
 }

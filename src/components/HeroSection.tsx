@@ -65,25 +65,47 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               className="mb-6"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4">
-                Leoul Solomon
-              </h1>
-              <div className="text-2xl md:text-3xl lg:text-4xl font-light text-green-100">
+              <motion.h1
+                className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-wider"
+                whileHover={{
+                  scale: 1.02,
+                  textShadow: "0px 0px 20px rgba(255,255,255,0.5)"
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.span
+                  animate={{
+                    textShadow: [
+                      "0px 0px 0px rgba(255,255,255,0)",
+                      "0px 0px 20px rgba(255,255,255,0.3)",
+                      "0px 0px 0px rgba(255,255,255,0)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  Leoul Solomon
+                </motion.span>
+              </motion.h1>
+              <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-green-100 mb-2">
                 <TypewriterEffect
-                  text="Art Director"
+                  text="ART DIRECTOR"
                   delay={1000}
                   speed={150}
-                  className="text-white font-medium"
+                  className="text-white font-bold uppercase tracking-widest"
                 />
               </div>
             </motion.div>
 
-            {/* Subtitle */}
+            {/* Enhanced Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-              className="text-lg md:text-xl text-green-100 mb-8 leading-relaxed font-body"
+              className="text-xl md:text-2xl lg:text-3xl text-green-100 mb-12 leading-relaxed font-body max-w-4xl"
             >
               Creating compelling visual narratives through innovative design,
               strategic branding, and cutting-edge motion graphics that captivate
@@ -119,11 +141,11 @@ export default function HeroSection() {
             >
               <Link href="/work" className="btn btn-primary group">
                 View My Work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-2" />
               </Link>
-              <Link href="/contact" className="btn btn-secondary group">
+              <Link href="/contact" className="btn btn-accent group">
                 Get In Touch
-                <Download className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
+                <Download className="ml-3 h-6 w-6 transition-transform group-hover:translate-y-2" />
               </Link>
             </motion.div>
           </div>

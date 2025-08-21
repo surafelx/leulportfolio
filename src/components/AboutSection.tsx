@@ -37,9 +37,9 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Crafting Visual Stories That 
-              <span className="gradient-text"> Inspire & Engage</span>
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-8 uppercase tracking-wider">
+              Crafting Visual Stories That
+              <span className="gradient-text-vibrant"> Inspire & Engage</span>
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               I'm Leoul Solomon, an Art Director with a passion for transforming ideas 

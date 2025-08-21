@@ -99,52 +99,87 @@ export default function PortfolioGrid({
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
-        {/* Header */}
+        {/* Enhanced Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{
+            duration: 1,
+            type: "spring",
+            stiffness: 100,
+            damping: 20
+          }}
+          className="text-center mb-20 lg:mb-24"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            {title}
-          </h2>
+          <motion.h2
+            className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-8 uppercase tracking-wider"
+            whileHover={{
+              scale: 1.05,
+              textShadow: "0px 0px 8px rgba(0,0,0,0.3)"
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.span
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent bg-[length:200%_100%]"
+            >
+              {title}
+            </motion.span>
+          </motion.h2>
           {subtitle && (
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium"
+            >
               {subtitle}
-            </p>
+            </motion.p>
           )}
         </motion.div>
 
         {/* Projects Grid with Navigation - Optimized for 1920x1080 */}
         <div className="relative mb-12">
-          {/* Left Arrow */}
+          {/* Left Arrow - Green Theme */}
           <motion.button
             onClick={scrollLeft}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 ${
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
               canScrollLeft
-                ? 'opacity-100 hover:bg-gray-50 hover:shadow-xl transform hover:scale-110'
+                ? 'opacity-100 hover:from-green-600 hover:to-emerald-700 hover:shadow-3xl transform hover:scale-125'
                 : 'opacity-0 pointer-events-none'
             }`}
-            whileHover={{ scale: canScrollLeft ? 1.1 : 1 }}
-            whileTap={{ scale: canScrollLeft ? 0.95 : 1 }}
+            whileHover={{
+              scale: canScrollLeft ? 1.25 : 1,
+              rotate: canScrollLeft ? -5 : 0
+            }}
+            whileTap={{ scale: canScrollLeft ? 0.9 : 1 }}
           >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
+            <ChevronLeft className="w-8 h-8 text-white drop-shadow-lg" />
           </motion.button>
 
-          {/* Right Arrow */}
+          {/* Right Arrow - Green Theme */}
           <motion.button
             onClick={scrollRight}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 ${
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
               canScrollRight
-                ? 'opacity-100 hover:bg-gray-50 hover:shadow-xl transform hover:scale-110'
+                ? 'opacity-100 hover:from-emerald-600 hover:to-teal-700 hover:shadow-3xl transform hover:scale-125'
                 : 'opacity-0 pointer-events-none'
             }`}
-            whileHover={{ scale: canScrollRight ? 1.1 : 1 }}
-            whileTap={{ scale: canScrollRight ? 0.95 : 1 }}
+            whileHover={{
+              scale: canScrollRight ? 1.25 : 1,
+              rotate: canScrollRight ? 5 : 0
+            }}
+            whileTap={{ scale: canScrollRight ? 0.9 : 1 }}
           >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
+            <ChevronRight className="w-8 h-8 text-white drop-shadow-lg" />
           </motion.button>
 
           {/* Scrollable Grid Container */}
@@ -154,82 +189,181 @@ export default function PortfolioGrid({
             onScroll={checkScrollButtons}
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            <div className="flex gap-6 lg:gap-8 pb-4" style={{ width: 'max-content' }}>
+            <div className="flex gap-8 lg:gap-10 pb-6" style={{ width: 'max-content' }}>
               {projects.map((project, index) => (
-                <div key={project.id} className="flex-shrink-0 w-80 lg:w-96">
-                {projects.map((project, index) => (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="group cursor-pointer"
-                  >
-              <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-[16/10] mb-4">
-                {/* Project Image/Video */}
-                <div className="relative w-full h-full">
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  whileHover={{
+                    y: -20,
+                    scale: 1.05,
+                    rotateY: 5,
+                    rotateX: 5,
+                    transition: { duration: 0.4, ease: "easeOut" }
+                  }}
+                  className="group cursor-pointer flex-shrink-0 w-96 lg:w-[420px] xl:w-[480px]"
+                  style={{ perspective: "1000px" }}
+                >
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 aspect-[16/10] mb-6 shadow-xl group-hover:shadow-3xl transition-all duration-500 border-2 border-green-200 group-hover:border-green-400">
+                {/* Project Image/Video with Enhanced Effects */}
+                <div className="relative w-full h-full transform-gpu">
                   {project.imageUrl.endsWith('.mp4') || project.imageUrl.endsWith('.mov') ? (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300">
-                      <div className="text-center">
-                        <Play className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                        <p className="text-sm text-gray-500">Video Project</p>
+                    <motion.div
+                      className="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-100 via-emerald-100 to-teal-100 group-hover:from-green-200 group-hover:via-emerald-200 group-hover:to-teal-200 transition-all duration-700"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                      <div className="text-center transform group-hover:scale-110 transition-transform duration-500">
+                        <motion.div
+                          animate={{
+                            rotate: [0, 360],
+                            scale: [1, 1.1, 1]
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <Play className="w-16 h-16 text-green-600 mx-auto mb-3 drop-shadow-lg" />
+                        </motion.div>
+                        <p className="text-base font-semibold text-gray-700 uppercase tracking-wide">Video Project</p>
+                        <p className="text-sm text-gray-500 mt-1">{project.category}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300">
-                      <div className="text-center">
-                        <ImageIcon className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                        <p className="text-sm text-gray-500">{project.category}</p>
+                    <motion.div
+                      className="w-full h-full flex items-center justify-center bg-gradient-to-br from-lime-100 via-green-100 to-emerald-100 group-hover:from-lime-200 group-hover:via-green-200 group-hover:to-emerald-200 transition-all duration-700"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                      <div className="text-center transform group-hover:scale-110 transition-transform duration-500">
+                        <motion.div
+                          animate={{
+                            y: [0, -10, 0],
+                            rotate: [0, 5, -5, 0]
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <ImageIcon className="w-16 h-16 text-emerald-600 mx-auto mb-3 drop-shadow-lg" />
+                        </motion.div>
+                        <p className="text-base font-semibold text-gray-700 uppercase tracking-wide">{project.category}</p>
+                        <p className="text-sm text-gray-500 mt-1">Creative Work</p>
                       </div>
-                    </div>
+                    </motion.div>
                   )}
 
-                  {/* Overlay */}
+                  {/* Enhanced Overlay with Close-up Effect */}
                   <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end backdrop-blur-sm"
                   >
-                    <div className="p-6 text-white w-full">
+                    <div className="p-8 text-white w-full">
                       <motion.h3
-                        initial={{ y: 20, opacity: 0 }}
+                        initial={{ y: 30, opacity: 0 }}
                         whileHover={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.1 }}
-                        className="text-lg font-semibold mb-2"
+                        transition={{ duration: 0.4, delay: 0.1 }}
+                        className="text-xl font-bold mb-3 uppercase tracking-wide"
                       >
                         {project.title}
                       </motion.h3>
                       <motion.p
-                        initial={{ y: 20, opacity: 0 }}
+                        initial={{ y: 30, opacity: 0 }}
                         whileHover={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.2 }}
-                        className="text-sm text-gray-200 line-clamp-2"
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                        className="text-sm text-gray-200 line-clamp-3 leading-relaxed"
                       >
                         {project.description}
                       </motion.p>
+                      <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        whileHover={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.3 }}
+                        className="mt-4 flex items-center gap-2"
+                      >
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span className="text-xs text-green-400 font-medium uppercase tracking-wider">
+                          View Project
+                        </span>
+                      </motion.div>
                     </div>
                   </motion.div>
                 </div>
 
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-medium text-gray-800 rounded-full">
+                {/* Enhanced Category Badge */}
+                <div className="absolute top-6 left-6">
+                  <motion.span
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-4 py-2 bg-white/95 backdrop-blur-md text-sm font-bold text-gray-800 rounded-full shadow-lg border-2 border-white/50 uppercase tracking-wide"
+                  >
                     {project.category}
-                  </span>
+                  </motion.span>
                 </div>
+
+                {/* Floating Elements */}
+                <motion.div
+                  animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute top-6 right-6 w-3 h-3 bg-blue-400/60 rounded-full"
+                />
+                <motion.div
+                  animate={{
+                    y: [0, -15, 0],
+                    opacity: [0.4, 0.8, 0.4]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1
+                  }}
+                  className="absolute bottom-6 right-6 w-2 h-2 bg-green-400/60 rounded-full"
+                />
               </div>
 
-              {/* Project Info */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 mb-1">
+              {/* Enhanced Project Info */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300 mb-2 uppercase tracking-wide">
                   {project.title}
                 </h3>
-                <p className="text-sm text-gray-600">
-                  {project.category} • {new Date(project.createdAt).getFullYear()}
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wider">
+                    {project.category}
+                  </span>
+                  <span className="text-sm text-gray-500 font-medium">
+                    {new Date(project.createdAt).getFullYear()}
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+                  {project.description}
                 </p>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
