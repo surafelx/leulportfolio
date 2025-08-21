@@ -1,5 +1,5 @@
 'use client';
-
+import Image from "next/image" 
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Tag } from 'lucide-react';
@@ -81,11 +81,13 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                       Your browser does not support the video tag.
                     </video>
                   ) : (
-                    <img
+                    <Image
                       src={project.imageUrl}
                       alt={project.title}
                       className="w-full h-full object-cover"
-                    />
+                      width={1000}
+                      height={600}
+                    />  
                   )}
                 </div>
               </div>

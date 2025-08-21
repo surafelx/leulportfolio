@@ -20,7 +20,7 @@ async function readContacts(): Promise<ContactSubmission[]> {
   try {
     const fileContents = await fs.readFile(contactsFilePath, 'utf8');
     return JSON.parse(fileContents);
-  } catch (error) {
+  } catch {
     // If file doesn't exist, return empty array
     return [];
   }

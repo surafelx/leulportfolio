@@ -26,11 +26,12 @@ async function writeProjects(projects: Project[]): Promise<void> {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const projects = await readProjects();
-    const project = projects.find(p => p.id === params.id);
+    const project = projects.find(p => p.id === id);
     
     if (!project) {
       return NextResponse.json(
@@ -54,25 +55,26 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body: Partial<ProjectFormData> = await request.json();
     const projects = await readProjects();
-    const projectIndex = projects.findIndex(p => p.id === params.id);
-    
+    const projectIndex = projects.findIndex(p => p.id === id);
+
     if (projectIndex === -1) {
       return NextResponse.json(
         { success: false, error: 'Project not found' },
         { status: 404 }
       );
     }
-    
+
     // Update project with provided fields
     const updatedProject = {
       ...projects[projectIndex],
       ...body,
-      id: params.id, // Ensure ID doesn't change
+      id: id, // Ensure ID doesn't change
     };
     
     projects[projectIndex] = updatedProject;
@@ -93,11 +95,12 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const projects = await readProjects();
-    const projectIndex = projects.findIndex(p => p.id === params.id);
+    const projectIndex = projects.findIndex(p => p.id === id);
     
     if (projectIndex === -1) {
       return NextResponse.json(

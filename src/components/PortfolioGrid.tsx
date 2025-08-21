@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, ImageIcon, Play } from 'lucide-react';
@@ -28,28 +28,11 @@ export default function PortfolioGrid({
 }: PortfolioGridProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    fetchProjects();
-  }, [category]);
-
-  useEffect(() => {
-    checkScrollButtons();
-  }, [projects]);
-
-  const checkScrollButtons = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
-    }
-  };
-
-  const fetchProjects = async () => {
+    const fetchProjects = useCallback(async () => {
     try {
       const url = category ? `/api/projects?category=${category}` : '/api/projects';
       const response = await fetch(url);
@@ -63,7 +46,25 @@ export default function PortfolioGrid({
     } finally {
       setLoading(false);
     }
+  }, [category, limit]);
+  
+  useEffect(() => {
+    fetchProjects();
+  }, [category, fetchProjects]);
+
+  useEffect(() => {
+    checkScrollButtons();
+  }, [projects]);
+
+  const checkScrollButtons = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
   };
+
+
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {

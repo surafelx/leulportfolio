@@ -1,5 +1,5 @@
 'use client';
-
+import Image from "next/image"
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '@/types/project';
@@ -47,12 +47,13 @@ export default function ProjectCard({ project, index, onClick }: ProjectCardProp
                   <source src={project.imageUrl} type="video/mp4" />
                 </video>
               ) : (
-                <img
+                <Image
                   src={project.imageUrl}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   onLoad={() => setImageLoaded(true)}
                   onError={() => setImageError(true)}
+                  
                 />
               )}
             </>

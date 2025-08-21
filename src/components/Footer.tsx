@@ -53,7 +53,7 @@ export default function Footer() {
               </h3>
               <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
                 Art Director passionate about creating compelling visual narratives 
-                that connect brands with their audiences. Let's bring your vision to life 
+                that connect brands with their audiences. Let&apos;s bring your vision to life
                 through innovative design and strategic thinking.
               </p>
               

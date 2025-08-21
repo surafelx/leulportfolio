@@ -74,10 +74,10 @@ export default function ContactPage() {
       } else {
         setStatus({ type: 'error', message: data.error });
       }
-    } catch (error) {
-      setStatus({ 
-        type: 'error', 
-        message: 'Failed to send message. Please try again.' 
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again.'
       });
     } finally {
       setIsSubmitting(false);
@@ -99,7 +99,7 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to bring your creative vision to life? Let's discuss your 
+              Ready to bring your creative vision to life? Let&apos;s discuss your
               project and explore how we can work together to create something amazing.
             </p>
           </motion.div>
@@ -118,11 +118,11 @@ export default function ContactPage() {
           >
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Let's Start a Conversation
+                Let&apos;s Start a Conversation
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 Whether you have a specific project in mind or just want to 
-                explore possibilities, I'd love to hear from you. Every great 
+                explore possibilities, I&apos;d love to hear from you. Every great
                 creative partnership starts with a conversation.
               </p>
             </div>

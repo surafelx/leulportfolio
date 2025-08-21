@@ -49,7 +49,7 @@ export default function AboutPage() {
                 About Me
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                I'm Leoul Solomon, an Art Director passionate about creating 
+                I&apos;m Leoul Solomon, an Art Director passionate about creating
                 compelling visual narratives that connect brands with their audiences. 
                 With over 8 years of experience in the creative industry, I specialize 
                 in transforming ideas into powerful visual experiences.
@@ -173,7 +173,7 @@ export default function AboutPage() {
                   and develop a comprehensive skill set.
                 </p>
                 <p>
-                  Over the years, I've had the privilege of working with diverse clients 
+                  Over the years, I&apos;ve had the privilege of working with diverse clients
                   ranging from startups to Fortune 500 companies. Each project has taught 
                   me something new and helped me refine my approach to creative problem-solving.
                 </p>

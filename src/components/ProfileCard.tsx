@@ -92,7 +92,7 @@ export default function ProfileCard() {
         transition={{ duration: 0.6, delay: 1.3 }}
         className="space-y-3"
       >
-        {contactInfo.map((contact, index) => (
+        {contactInfo.map((contact) => (
           <div key={contact.label} className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
               <contact.icon className="w-4 h-4 text-gray-600" />

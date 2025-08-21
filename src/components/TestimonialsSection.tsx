@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
             What Clients Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take my word for it - here's what clients have to say about working together
+            Don&apos;t just take my word for it - here&apos;s what clients have to say about working together
           </p>
         </motion.div>
 
@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
                 </div>
                 <div>
                   <p className="text-gray-700 mb-4 leading-relaxed italic">
-                    "{testimonial.message}"
+                                       &ldquo;{testimonial.message}&rdquo;
                   </p>
                   <div>
                     <p className="font-semibold text-gray-900">

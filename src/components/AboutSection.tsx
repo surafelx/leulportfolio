@@ -42,7 +42,7 @@ export default function AboutSection() {
               <span className="gradient-text-vibrant"> Inspire & Engage</span>
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              I'm Leoul Solomon, an Art Director with a passion for transforming ideas 
+              I&apos;m Leoul Solomon, an Art Director with a passion for transforming ideas
               into powerful visual experiences. With over 8 years in the creative industry, 
               I specialize in creating compelling narratives that connect brands with their audiences.
             </p>

@@ -20,7 +20,7 @@ export default function LazySection({
 }: LazySectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    threshold,
+    amount: threshold,
     once: triggerOnce,
   });
 
