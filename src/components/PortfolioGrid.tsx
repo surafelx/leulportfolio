@@ -120,14 +120,68 @@ export default function PortfolioGrid({
             onScrollRight={scrollRight}
           />
 
-          {/* Scrollable Grid Container */}
-          <div
-            ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-hide px-12"
-            onScroll={checkScrollButtons}
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            <div className="flex gap-8 lg:gap-10 pb-6" style={{ width: 'max-content' }}>
+          {/* Grid Container - Pinterest style for Social Media */}
+          {category === 'Social Media' ? (
+            <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="break-inside-avoid mb-4"
+                >
+                  <Link href={`/projects/${project.id}`}>
+                    <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+                      {/* Image Container with dynamic aspect ratio */}
+                      <div className="relative overflow-hidden">
+                        {project.imageUrl ? (
+                          <motion.img
+                            src={project.imageUrl}
+                            alt={project.title}
+                            className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
+                            whileHover={{ scale: 1.05 }}
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="w-full aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                            <ImageIcon className="w-12 h-12 text-gray-400" />
+                          </div>
+                        )}
+
+                        {/* Overlay */}
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          whileHover={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute inset-0 bg-black/60 flex items-center justify-center"
+                        >
+                          <motion.div
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            whileHover={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="text-white text-center"
+                          >
+                            <h3 className="text-lg font-bold mb-2">{project.title}</h3>
+                            <p className="text-sm opacity-90">{project.category}</p>
+                          </motion.div>
+                        </motion.div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            /* Regular Scrollable Grid Container for other categories */
+            <div
+              ref={scrollContainerRef}
+              className="overflow-x-auto scrollbar-hide px-12"
+              onScroll={checkScrollButtons}
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <div className="flex gap-8 lg:gap-10 pb-6" style={{ width: 'max-content' }}>
               {comingSoon ? (
                 // Coming Soon Display
                 <div className="flex gap-8 lg:gap-10">
@@ -320,9 +374,10 @@ export default function PortfolioGrid({
             </motion.div>
                 ))
               )}
+            </div>
+          </div>
+          )}
         </div>
-      </div>
-    </div>
 
         {/* View All Button */}
         {showViewAll && !comingSoon && (

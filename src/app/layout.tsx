@@ -20,12 +20,12 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Leoul Solomon - Art Director",
+  title: "Art Director - Leoul Solomon",
   description: "Portfolio of Leoul Solomon, Art Director specializing in KV, Branding, TVC, Motion Graphics, 3D, and Presentation Design",
   keywords: "art director, graphic design, branding, motion graphics, 3d design, key visuals, tv commercials",
   authors: [{ name: "Leoul Solomon" }],
   openGraph: {
-    title: "Leoul Solomon - Art Director",
+    title: "Art Director - Leoul Solomon",
     description: "Portfolio showcasing creative work in branding, motion graphics, and visual design",
     type: "website",
   },

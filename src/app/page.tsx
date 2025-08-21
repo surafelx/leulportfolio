@@ -1,6 +1,7 @@
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import PartnersSection from '@/components/PartnersSection';
+import ProfessionalJourney from '@/components/ProfessionalJourney';
 import PortfolioGrid from '@/components/PortfolioGrid';
 import TestimonialsSection from '@/components/TestimonialsSection';
 
@@ -8,8 +9,9 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <PartnersSection />
+        <PartnersSection />
       <AboutSection />
+    
 
       {/* Social Media */}
       <div className="mt-8 lg:mt-12">
@@ -22,6 +24,8 @@ export default function Home() {
       </div>
 
       <TestimonialsSection />
+
+      <ProfessionalJourney />
 
       {/* Presentation Decks */}
       <div className="bg-gray-50">

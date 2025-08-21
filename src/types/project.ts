@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'KV' | 'Branding' | 'TVC' | 'Motion Graphics' | '3D' | 'Decks';
+  category: 'KV' | 'Branding' | 'TVC' | 'Motion Graphics' | '3D' | 'Decks' | 'Social Media';
   description: string;
   imageUrl: string;
   createdAt: string;

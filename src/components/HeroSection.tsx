@@ -65,6 +65,14 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               className="mb-6"
             >
+              <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-green-100 mb-4">
+                <TypewriterEffect
+                  text="ART DIRECTOR"
+                  delay={500}
+                  speed={150}
+                  className="text-white font-bold uppercase tracking-widest"
+                />
+              </div>
               <motion.h1
                 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-wider"
                 whileHover={{
@@ -90,14 +98,6 @@ export default function HeroSection() {
                   Leoul Solomon
                 </motion.span>
               </motion.h1>
-              <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-green-100 mb-2">
-                <TypewriterEffect
-                  text="ART DIRECTOR"
-                  delay={1000}
-                  speed={150}
-                  className="text-white font-bold uppercase tracking-widest"
-                />
-              </div>
             </motion.div>
 
             {/* Enhanced Subtitle */}
