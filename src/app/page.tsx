@@ -11,40 +11,53 @@ export default function Home() {
       <PartnersSection />
       <AboutSection />
 
-      {/* Featured Work - Key Visuals */}
-      <PortfolioGrid
-        title="Featured Key Visuals"
-        subtitle="Strategic visual campaigns that capture attention and drive engagement"
-        category="KV"
-        limit={8}
-      />
-
-      <TestimonialsSection />
-
-      {/* Branding Projects */}
-      <PortfolioGrid
-        title="Brand Identity Work"
-        subtitle="Complete brand systems that tell compelling stories"
-        category="Branding"
-        limit={8}
-      />
-
-      {/* Motion Graphics */}
-      <div className="bg-gray-50">
+      {/* Social Media */}
+      <div className="mt-8 lg:mt-12">
         <PortfolioGrid
-          title="Motion & Animation"
-          subtitle="Dynamic visual storytelling through motion graphics and animation"
-          category="Motion Graphics"
+          title="Social Media"
+          subtitle="Engaging social content that builds communities and drives interaction"
+          category="Social Media"
           limit={8}
         />
       </div>
 
-      {/* Recent Projects - All Categories */}
+      <TestimonialsSection />
+
+      {/* Presentation Decks */}
+      <div className="bg-gray-50">
+        <PortfolioGrid
+          title="Presentation Decks"
+          subtitle="Professional presentations that communicate ideas with impact"
+          category="Decks"
+          limit={8}
+        />
+      </div>
+
+      {/* Motion Graphics */}
       <PortfolioGrid
-        title="Recent Projects"
-        subtitle="Latest creative work across all disciplines"
-        limit={12}
-        showViewAll={true}
+        title="Motion Graphics"
+        subtitle="Dynamic visual storytelling through motion graphics and animation"
+        category="Motion Graphics"
+        limit={8}
+      />
+
+      {/* TVC - Coming Soon */}
+      <div className="bg-gradient-to-br from-green-50 to-emerald-100">
+        <PortfolioGrid
+          title="TV Commercials"
+          subtitle="Professional television commercials and video campaigns"
+          category="TVC"
+          limit={8}
+          comingSoon={true}
+        />
+      </div>
+
+      {/* Branding Projects */}
+      <PortfolioGrid
+        title="Branding"
+        subtitle="Complete brand systems that tell compelling stories and build lasting connections"
+        category="Branding"
+        limit={8}
       />
     </div>
   );

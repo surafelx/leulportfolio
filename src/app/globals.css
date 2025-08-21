@@ -45,7 +45,7 @@
   }
 
   .btn-secondary {
-    @apply bg-gradient-to-r from-white to-green-50 text-green-700 border-3 border-green-400 hover:border-green-600 hover:from-green-50 hover:to-green-100 focus:ring-green-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-2xl;
+    @apply bg-gradient-to-r from-white to-green-50 text-green-700 border-2 border-green-400 hover:border-green-600 hover:from-green-50 hover:to-green-100 focus:ring-green-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-2xl;
   }
 
   .btn-accent {

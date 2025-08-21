@@ -41,7 +41,7 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${raleway.variable} font-sans antialiased`}>
         <ScrollProgress />
         <Navigation />
-        <main className="pt-16 lg:pt-20">
+        <main className="pt-20 lg:pt-24">
           <PageTransition>
             {children}
           </PageTransition>

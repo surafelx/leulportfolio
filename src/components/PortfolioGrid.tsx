@@ -12,6 +12,7 @@ interface PortfolioGridProps {
   category?: string;
   limit?: number;
   showViewAll?: boolean;
+  comingSoon?: boolean;
 }
 
 export default function PortfolioGrid({
@@ -19,7 +20,8 @@ export default function PortfolioGrid({
   subtitle,
   category,
   limit = 8,
-  showViewAll = true
+  showViewAll = true,
+  comingSoon = false
 }: PortfolioGridProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -151,7 +153,7 @@ export default function PortfolioGrid({
           {/* Left Arrow - Green Theme */}
           <motion.button
             onClick={scrollLeft}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
               canScrollLeft
                 ? 'opacity-100 hover:from-green-600 hover:to-emerald-700 hover:shadow-3xl transform hover:scale-125'
                 : 'opacity-0 pointer-events-none'
@@ -168,7 +170,7 @@ export default function PortfolioGrid({
           {/* Right Arrow - Green Theme */}
           <motion.button
             onClick={scrollRight}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 shadow-2xl rounded-full flex items-center justify-center transition-all duration-300 ${
               canScrollRight
                 ? 'opacity-100 hover:from-emerald-600 hover:to-teal-700 hover:shadow-3xl transform hover:scale-125'
                 : 'opacity-0 pointer-events-none'
@@ -190,7 +192,72 @@ export default function PortfolioGrid({
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <div className="flex gap-8 lg:gap-10 pb-6" style={{ width: 'max-content' }}>
-              {projects.map((project, index) => (
+              {comingSoon ? (
+                // Coming Soon Display
+                <div className="flex gap-8 lg:gap-10">
+                  {[1, 2, 3, 4].map((index) => (
+                    <motion.div
+                      key={`coming-soon-${index}`}
+                      initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.8,
+                        delay: index * 0.15,
+                        type: "spring",
+                        stiffness: 100
+                      }}
+                      className="flex-shrink-0 w-96 lg:w-[420px] xl:w-[480px]"
+                    >
+                      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 aspect-[16/10] mb-6 shadow-xl border-2 border-gray-300">
+                        <div className="relative w-full h-full flex items-center justify-center">
+                          <div className="text-center">
+                            <motion.div
+                              animate={{
+                                scale: [1, 1.1, 1],
+                                opacity: [0.7, 1, 0.7]
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                              }}
+                              className="w-20 h-20 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4"
+                            >
+                              <span className="text-2xl font-bold text-white">🎬</span>
+                            </motion.div>
+                            <h3 className="text-2xl font-bold text-gray-700 uppercase tracking-wide mb-2">
+                              Coming Soon
+                            </h3>
+                            <p className="text-gray-500 text-sm">
+                              Exciting new content in development
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-400 mb-2 uppercase tracking-wide">
+                          TVC Project {index}
+                        </h3>
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="px-3 py-1 bg-gray-200 text-gray-500 text-xs font-bold rounded-full uppercase tracking-wider">
+                            Coming Soon
+                          </span>
+                          <span className="text-sm text-gray-400 font-medium">
+                            2024
+                          </span>
+                        </div>
+                        <p className="text-sm text-gray-400 leading-relaxed">
+                          Professional television commercial in development. Stay tuned for updates.
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                // Regular Projects Display
+                projects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 60, scale: 0.9 }}
@@ -365,13 +432,14 @@ export default function PortfolioGrid({
                 </p>
               </motion.div>
             </motion.div>
-          ))}
+                ))
+              )}
         </div>
       </div>
     </div>
 
         {/* View All Button */}
-        {showViewAll && (
+        {showViewAll && !comingSoon && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
