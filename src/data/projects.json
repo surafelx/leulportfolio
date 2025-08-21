@@ -228,7 +228,7 @@
     "title": "Instagram Campaign",
     "category": "Social Media",
     "description": "Engaging Instagram campaign for fashion brand featuring cohesive visual storytelling, branded templates, and interactive story content that drives engagement and brand awareness.",
-    "imageUrl": "/images/social-instagram.jpg",
+    "imageUrl": "https://picsum.photos/400/600?random=29",
     "createdAt": "2025-01-15"
   },
   {
@@ -236,7 +236,7 @@
     "title": "LinkedIn Content Series",
     "category": "Social Media",
     "description": "Professional LinkedIn content series for B2B tech company. Thought leadership posts, infographics, and carousel designs that establish industry authority.",
-    "imageUrl": "/images/social-linkedin.jpg",
+    "imageUrl": "https://picsum.photos/400/500?random=30",
     "createdAt": "2025-02-20"
   },
   {
@@ -244,7 +244,7 @@
     "title": "TikTok Brand Campaign",
     "category": "Social Media",
     "description": "Creative TikTok campaign for Gen Z audience featuring trending formats, branded effects, and viral-worthy content that amplifies brand reach.",
-    "imageUrl": "/images/social-tiktok.jpg",
+    "imageUrl": "https://picsum.photos/400/700?random=31",
     "createdAt": "2025-03-10"
   },
   {
@@ -252,7 +252,7 @@
     "title": "Facebook Ad Creative",
     "category": "Social Media",
     "description": "High-converting Facebook ad creatives for e-commerce brand. A/B tested designs with compelling copy and clear call-to-actions that drive sales.",
-    "imageUrl": "/images/social-facebook.jpg",
+    "imageUrl": "https://picsum.photos/400/400?random=32",
     "createdAt": "2025-04-05"
   },
   {
@@ -260,7 +260,7 @@
     "title": "Twitter Brand Voice",
     "category": "Social Media",
     "description": "Consistent Twitter brand voice development with engaging tweet templates, branded graphics, and community management strategies.",
-    "imageUrl": "/images/social-twitter.jpg",
+    "imageUrl": "https://picsum.photos/400/600?random=33",
     "createdAt": "2025-05-12"
   },
   {
@@ -268,7 +268,7 @@
     "title": "YouTube Thumbnail Design",
     "category": "Social Media",
     "description": "Eye-catching YouTube thumbnail designs that increase click-through rates. Bold typography, vibrant colors, and compelling visual hierarchy.",
-    "imageUrl": "/images/social-youtube.jpg",
+    "imageUrl": "https://picsum.photos/400/300?random=34",
     "createdAt": "2025-06-08"
   },
   {
@@ -276,7 +276,7 @@
     "title": "Pinterest Brand Board",
     "category": "Social Media",
     "description": "Cohesive Pinterest brand board strategy with optimized pin designs, seasonal content, and lifestyle imagery that drives traffic and engagement.",
-    "imageUrl": "/images/social-pinterest.jpg",
+    "imageUrl": "https://picsum.photos/400/800?random=35",
     "createdAt": "2025-07-01"
   },
   {
@@ -284,7 +284,7 @@
     "title": "Snapchat AR Filter",
     "category": "Social Media",
     "description": "Interactive Snapchat AR filter for product launch. Custom branded experience that encourages user-generated content and viral sharing.",
-    "imageUrl": "/images/social-snapchat.jpg",
+    "imageUrl": "https://picsum.photos/400/650?random=36",
     "createdAt": "2025-08-15"
   }
 ]

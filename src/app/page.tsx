@@ -11,6 +11,7 @@ export default function Home() {
       <HeroSection />
         <PartnersSection />
       <AboutSection />
+      <ProfessionalJourney />
     
 
       {/* Social Media */}
@@ -25,7 +26,6 @@ export default function Home() {
 
       <TestimonialsSection />
 
-      <ProfessionalJourney />
 
       {/* Presentation Decks */}
       <div className="bg-gray-50">

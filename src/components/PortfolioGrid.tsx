@@ -122,8 +122,10 @@ export default function PortfolioGrid({
 
           {/* Grid Container - Pinterest style for Social Media */}
           {category === 'Social Media' ? (
-            <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
-              {projects.map((project, index) => (
+            <div className="max-w-7xl mx-auto px-4">
+              {projects.length > 0 ? (
+                <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
+                  {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -172,6 +174,58 @@ export default function PortfolioGrid({
                   </Link>
                 </motion.div>
               ))}
+                </div>
+              ) : (
+                /* Fallback content for Social Media when no projects exist */
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                    <motion.div
+                      key={`social-placeholder-${index}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-green-50 to-emerald-100"
+                      style={{ aspectRatio: index % 3 === 0 ? '3/4' : index % 2 === 0 ? '4/5' : '1/1' }}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <motion.div
+                          animate={{
+                            y: [0, -10, 0],
+                            rotate: [0, 5, -5, 0]
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.2
+                          }}
+                          className="text-center"
+                        >
+                          <ImageIcon className="w-12 h-12 text-emerald-600 mx-auto mb-3 drop-shadow-lg" />
+                          <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Social Media</p>
+                          <p className="text-xs text-gray-500 mt-1">Coming Soon</p>
+                        </motion.div>
+                      </div>
+
+                      {/* Floating Elements */}
+                      <motion.div
+                        animate={{
+                          rotate: [0, 360],
+                          scale: [1, 1.2, 1]
+                        }}
+                        transition={{
+                          duration: 8,
+                          repeat: Infinity,
+                          ease: "linear",
+                          delay: index * 0.3
+                        }}
+                        className="absolute top-4 right-4 w-2 h-2 bg-blue-400/60 rounded-full"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </div>
           ) : (
             /* Regular Scrollable Grid Container for other categories */
