@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Play, Image as ImageIcon } from 'lucide-react';
+import { ArrowRight, Play, Image as ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Project } from '@/types/project';
 
 interface PortfolioGridProps {
@@ -23,17 +23,33 @@ export default function PortfolioGrid({
 }: PortfolioGridProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchProjects();
   }, [category]);
+
+  useEffect(() => {
+    checkScrollButtons();
+  }, [projects]);
+
+  const checkScrollButtons = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  };
 
   const fetchProjects = async () => {
     try {
       const url = category ? `/api/projects?category=${category}` : '/api/projects';
       const response = await fetch(url);
       const data = await response.json();
-      
+
       if (data.success) {
         setProjects(data.data.slice(0, limit));
       }
@@ -41,6 +57,30 @@ export default function PortfolioGrid({
       console.error('Error fetching projects:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.children[0]?.clientWidth || 300;
+      const scrollAmount = cardWidth + 32; // card width + gap
+      scrollContainerRef.current.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScrollButtons, 300);
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.children[0]?.clientWidth || 300;
+      const scrollAmount = cardWidth + 32; // card width + gap
+      scrollContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScrollButtons, 300);
     }
   };
 
@@ -77,17 +117,55 @@ export default function PortfolioGrid({
           )}
         </motion.div>
 
-        {/* Projects Grid - Optimized for 1920x1080 */}
-        <div className="portfolio-grid-1920 mb-12">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group cursor-pointer"
-            >
+        {/* Projects Grid with Navigation - Optimized for 1920x1080 */}
+        <div className="relative mb-12">
+          {/* Left Arrow */}
+          <motion.button
+            onClick={scrollLeft}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 ${
+              canScrollLeft
+                ? 'opacity-100 hover:bg-gray-50 hover:shadow-xl transform hover:scale-110'
+                : 'opacity-0 pointer-events-none'
+            }`}
+            whileHover={{ scale: canScrollLeft ? 1.1 : 1 }}
+            whileTap={{ scale: canScrollLeft ? 0.95 : 1 }}
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </motion.button>
+
+          {/* Right Arrow */}
+          <motion.button
+            onClick={scrollRight}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 ${
+              canScrollRight
+                ? 'opacity-100 hover:bg-gray-50 hover:shadow-xl transform hover:scale-110'
+                : 'opacity-0 pointer-events-none'
+            }`}
+            whileHover={{ scale: canScrollRight ? 1.1 : 1 }}
+            whileTap={{ scale: canScrollRight ? 0.95 : 1 }}
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </motion.button>
+
+          {/* Scrollable Grid Container */}
+          <div
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide px-12"
+            onScroll={checkScrollButtons}
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <div className="flex gap-6 lg:gap-8 pb-4" style={{ width: 'max-content' }}>
+              {projects.map((project, index) => (
+                <div key={project.id} className="flex-shrink-0 w-80 lg:w-96">
+                {projects.map((project, index) => (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="group cursor-pointer"
+                  >
               <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-[16/10] mb-4">
                 {/* Project Image/Video */}
                 <div className="relative w-full h-full">
@@ -155,6 +233,8 @@ export default function PortfolioGrid({
             </motion.div>
           ))}
         </div>
+      </div>
+    </div>
 
         {/* View All Button */}
         {showViewAll && (
