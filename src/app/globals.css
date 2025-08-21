@@ -77,6 +77,10 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent;
+  }
+
+  .hero-green {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   }
 }

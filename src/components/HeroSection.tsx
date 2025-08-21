@@ -4,20 +4,20 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 import TypewriterEffect from './TypewriterEffect';
-import ProfileCard from './ProfileCard';
+import ManSilhouette from './ManSilhouette';
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-green-400 via-green-500 to-green-600">
       {/* Animated Background */}
-      <div className="absolute inset-0 gradient-bg opacity-10">
+      <div className="absolute inset-0">
         <motion.div
           className="absolute inset-0"
           animate={{
             background: [
-              'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              'linear-gradient(135deg, #764ba2 0%, #667eea 100%)',
-              'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+              'linear-gradient(135deg, #059669 0%, #047857 100%)',
+              'linear-gradient(135deg, #047857 0%, #10b981 100%)',
             ],
           }}
           transition={{
@@ -30,7 +30,7 @@ export default function HeroSection() {
 
       {/* Floating Elements */}
       <motion.div
-        className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full"
+        className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full"
         animate={{
           y: [0, -20, 0],
           rotate: [0, 180, 360],
@@ -42,7 +42,7 @@ export default function HeroSection() {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-16 h-16 bg-purple-500/10 rounded-full"
+        className="absolute bottom-20 right-10 w-16 h-16 bg-white/10 rounded-full"
         animate={{
           y: [0, 20, 0],
           rotate: [360, 180, 0],
@@ -65,15 +65,15 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               className="mb-6"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4">
                 Leoul Solomon
               </h1>
-              <div className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-700">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-light text-green-100">
                 <TypewriterEffect
                   text="Art Director"
                   delay={1000}
                   speed={150}
-                  className="gradient-text font-medium"
+                  className="text-white font-medium"
                 />
               </div>
             </motion.div>
@@ -83,7 +83,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-              className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-body"
+              className="text-lg md:text-xl text-green-100 mb-8 leading-relaxed font-body"
             >
               Creating compelling visual narratives through innovative design,
               strategic branding, and cutting-edge motion graphics that captivate
@@ -103,7 +103,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                  className="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 border border-gray-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all duration-200"
+                  className="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-green-800 border border-white/30 hover:border-white hover:bg-white transition-all duration-200"
                 >
                   {specialty}
                 </motion.span>
@@ -128,9 +128,9 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Profile Column */}
-          <div className="lg:col-span-1">
-            <ProfileCard />
+          {/* Silhouette Image */}
+          <div className="lg:col-span-1 flex justify-center items-center">
+            <ManSilhouette />
           </div>
         </div>
 
@@ -144,12 +144,12 @@ export default function HeroSection() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+            className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center"
           >
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+              className="w-1 h-3 bg-white/40 rounded-full mt-2"
             />
           </motion.div>
         </motion.div>

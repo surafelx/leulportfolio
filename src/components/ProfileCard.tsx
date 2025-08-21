@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { MapPin, Mail, Phone, Calendar, Award, Users } from 'lucide-react';
 
 const profileStats = [
@@ -31,8 +32,15 @@ export default function ProfileCard() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="w-32 h-32 mx-auto mb-4 relative"
         >
-          <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">
-            LS
+          <div className="w-full h-full rounded-full overflow-hidden shadow-lg ring-4 ring-white">
+            <Image
+              src="/images/profile-picture.jpg"
+              alt="Leoul Solomon"
+              width={128}
+              height={128}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
           <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
             <div className="w-3 h-3 bg-white rounded-full"></div>

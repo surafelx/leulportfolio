@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import ScrollProgress from "@/components/ScrollProgress";
 import ScrollToTop from "@/components/ScrollToTop";
+import Footer from "@/components/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
             {children}
           </PageTransition>
         </main>
+        <Footer />
         <ScrollToTop />
       </body>
     </html>
